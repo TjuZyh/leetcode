@@ -105,7 +105,7 @@ private ListNode reverse1(ListNode head){
     }
 ```
 
-**c.递归 **
+**c. 递归 **
 
 ```java
 		public ListNode reverseList(ListNode head) {
