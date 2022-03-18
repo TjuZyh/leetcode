@@ -46,6 +46,9 @@ public class Palindrome {
 
     //利用栈实现链表反转
     private ListNode reverse1(ListNode head){
+        if(head == null){
+            return null;
+        }
         Stack<ListNode> stack = new Stack<>();
         ListNode newHead = head;
         while(newHead != null){
