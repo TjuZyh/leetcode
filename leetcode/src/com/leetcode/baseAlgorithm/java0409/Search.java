@@ -21,7 +21,7 @@ public class Search {
     }
 
     public static void main(String[] args) {
-        int[] arr = {-1,0,3,5,9,12};
-        System.out.println(search(arr , 1));
+        int[] arr = {-1,0,3 , 3,5,9,12};
+        System.out.println(search(arr , 3));
     }
 }
