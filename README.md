@@ -173,3 +173,43 @@ public int[] levelOrder(TreeNode root) {
 
 ##### 2. DFS：深度优先遍历
 
+
+
+
+
+#### 4. 二分搜索
+
+**二分模板**
+
+- **寻找第一个满足条件的位置：**
+
+  ```java
+  int low = 0 , high = nums.length - 1;
+  if(low < high){
+    	//注意这里无需加一，向下取整
+      int mid = (high - low) / 2 + low;
+      if(满足条件){
+          high = mid;
+      }else{
+          low = mid + 1;
+      }
+  }
+  ```
+
+- **寻找最后一个满足条件的位置：**
+
+  ```java
+  int low = 0 , high = nums.length - 1;
+  if(low < high){
+    	//注意这里需要向上取整
+      int mid = (high - low + 1) / 2 + low;
+      if(满足条件){
+          low = mid;
+      }else{
+          high = mid - 1;
+      }
+  }
+  ```
+
+  
+
