@@ -1,4 +1,4 @@
-package com.leetcode.java0306;
+package com.leetcode.DailyCheckIn._0306;
 
 //I:1 V:5 X:10 L:50 C:100 D:500 M:1000
 //注意有六种特例

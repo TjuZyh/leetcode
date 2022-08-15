@@ -1,4 +1,4 @@
-package com.leetcode.java0307;
+package com.leetcode.DailyCheckIn._0307;
 
 public class CanConstruct {
     //ransomNote 能不能由 magazine 里面的字符构成

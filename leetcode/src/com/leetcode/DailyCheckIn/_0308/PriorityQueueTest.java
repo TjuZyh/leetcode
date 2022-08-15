@@ -1,4 +1,4 @@
-package com.leetcode.java0308;
+package com.leetcode.DailyCheckIn._0308;
 
 import org.junit.Test;
 

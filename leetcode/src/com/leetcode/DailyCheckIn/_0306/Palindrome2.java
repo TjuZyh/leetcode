@@ -1,4 +1,4 @@
-package com.leetcode.java0306;
+package com.leetcode.DailyCheckIn._0306;
 
 import com.leetcode.ListNode;
 

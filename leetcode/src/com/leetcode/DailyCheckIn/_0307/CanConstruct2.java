@@ -1,4 +1,4 @@
-package com.leetcode.java0307;
+package com.leetcode.DailyCheckIn._0307;
 
 public class CanConstruct2 {
 
