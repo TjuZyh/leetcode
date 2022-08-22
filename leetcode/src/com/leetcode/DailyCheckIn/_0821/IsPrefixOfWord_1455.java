@@ -22,10 +22,7 @@ public class IsPrefixOfWord_1455 {
         if(search.length() > origin.length()){
             return false;
         }
-        if(origin.substring(0 , search.length()).equals(search)){
-            return true;
-        }
-        return false;
+        return origin.substring(0, search.length()).equals(search);
     }
 
     public static void main(String[] args) {
