@@ -269,9 +269,38 @@ $ 与运算 同1为1
   num & 0x55555555
   ```
 
-  
+#### 6. 单调栈
 
+应用场景：
 
+- 求一个数组元素的下一个最大或最小值、判断当前元素符合某种条件的左右边界
+
+- **凡是看到需要用到第一个小于(等于)/大于(等于)该元素的元素，多半可以使用单调栈**
+
+例题：[商品折扣后的最终价格](https://leetcode.cn/problems/final-prices-with-a-special-discount-in-a-shop/)
+
+大致意思为给一个数组，找出当前数组位置右侧第一个小于该位置上数值的元素
+
+```java
+/*
+* 单调栈：凡是看到需要用到第一个小于(等于)/大于(等于)该元素的元素，多半可以使用单调栈
+*   维护一个单调栈，查询元素对应位置右侧的最小元素无需遍历右侧数组，只需访问栈顶元素即可
+*   倒序遍历数组，每当移动到新的位置，将栈中大于数组当前位置值的元素pop，这样栈顶就是数组右侧第一个最小元素，直接相减即可
+* */
+public int[] finalPrices1(int[] prices) {
+        Stack<Integer> stack = new Stack<>();
+        int[] ans = new int[prices.length];
+        for(int i = prices.length - 1 ; i >= 0 ; i--){
+            //将栈顶元素调整为右侧第一个小于price[i]的元素
+            while(!stack.isEmpty() && stack.peek() > prices[i]){
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? prices[i] : prices[i] - stack.peek();
+            stack.push(prices[i]);
+        }
+        return ans;
+    }
+```
 
 
 
