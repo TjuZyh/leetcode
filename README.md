@@ -173,7 +173,45 @@ public int[] levelOrder(TreeNode root) {
 
 ##### 2. DFS：深度优先遍历
 
+DFS解决二叉树路径问题：
 
+- 自顶向下：从某一个节点(不一定是根节点)，从上向下寻找路径，到某一个节点(不一定是叶节点)结束；
+- 非自定向下：从任意节点到任意节点的路径，不需要自顶向下
+
+模板：自顶向下
+
+```java
+private List<List<Integer>> res;
+public void dfs(TreeNode root , List<Integer> path){
+    if(root == null) return;
+    //选择当前元素是否加入到路径中
+    path.add(root.val);
+    //叶子节点，即到达路径尽头，在res添加路径，并返回
+    if(root.left == null && root.right == null){
+        res.add(path);
+        return;
+    }
+    //递归左右子树
+    dfs(root.left , path);
+    dfs(root.right, path);
+}
+```
+
+模板：非自顶向下
+
+基本思路：设计一个辅助函数dfs2，调用自身求出以一个节点为根节点的左侧最长路径left和右侧最长路径right，那么经过该节点的最长路径就是left+right
+接着只需要从根节点开始dfs,不断比较更新全局变量即可
+
+```java
+private int ans = 0;
+public int dfs2(TreeNode root){
+    if(root == null) return 0;
+    int left = dfs2(root.left);
+    int right = dfs2(root.right);
+    ans = Math.max(ans , left + right + root.val);
+    return Math.max(left , right);
+}
+```
 
 
 
