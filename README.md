@@ -213,8 +213,6 @@ public int dfs2(TreeNode root){
 }
 ```
 
-
-
 #### 4. 二分搜索
 
 **二分模板**
