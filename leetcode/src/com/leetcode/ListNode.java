@@ -24,4 +24,16 @@ public class ListNode {
                 ", next=" + next +
                 '}';
     }
+
+    public static ListNode constructListByArray(int[] arr){
+        int n = arr.length;
+        ListNode head = new ListNode(arr[0]);
+        ListNode temp = head;
+        for(int i = 1; i < n; i++){
+            temp.next = new ListNode(arr[i]);
+            temp = temp.next;
+        }
+        return head;
+    }
+
 }
