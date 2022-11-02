@@ -1,4 +1,4 @@
-package com.leetcode.DMSXL.hashTable;
+package com.leetcode.DMSXL.hashTable.anagrams;
 
 import javax.swing.*;
 import java.util.*;
