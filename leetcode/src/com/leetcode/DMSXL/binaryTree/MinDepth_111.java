@@ -81,8 +81,4 @@ public class MinDepth_111 {
         DFS(node.right, level + 1);
     }
 
-
-
-
-
 }
