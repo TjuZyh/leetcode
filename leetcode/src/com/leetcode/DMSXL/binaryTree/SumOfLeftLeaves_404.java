@@ -27,6 +27,7 @@ public class SumOfLeftLeaves_404 {
         while(!queue.isEmpty()) {
             TreeNode cur = queue.poll();
             if(cur.left != null) {
+                //判断左子叶是否为叶子节点
                 if(cur.left.left == null && cur.left.right == null) {
                     sum += cur.left.val;
                 }else {
