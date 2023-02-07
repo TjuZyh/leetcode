@@ -60,13 +60,8 @@ public class LargestRectangleArea_84 {
         return area;
     }
 
-
-
-
-
     public static void main(String[] args) {
         System.out.println(new LargestRectangleArea_84().largestRectangleArea2(new int[]{2, 1, 5, 6, 2, 3}));
     }
-
 
 }
