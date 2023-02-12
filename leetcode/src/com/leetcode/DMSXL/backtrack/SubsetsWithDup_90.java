@@ -17,7 +17,7 @@ public class SubsetsWithDup_90 {
     List<Integer> temp = new ArrayList<>();
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        backtrack2(nums, 0);
+        backtrack(nums, 0);
         return ans;
     }
 
@@ -41,7 +41,11 @@ public class SubsetsWithDup_90 {
         while(index < nums.length - 1 && nums[index] == nums[index + 1]) {
             index++;
         }
+        /*if(temp.size() == 0 || nums[index] != temp.get(temp.size() - 1)){
+            backtrack(nums, index + 1);
+        }*/
         backtrack(nums, index + 1);
+
     }
 
     //迭代方式
@@ -50,13 +54,13 @@ public class SubsetsWithDup_90 {
         for(int i = index; i < nums.length; i++) {
             if(i > index && nums[i] == nums[i - 1]) continue;
             temp.add(nums[i]);
-            backtrack(nums, index + 1);
+            backtrack(nums, i + 1);
             temp.remove(temp.size() - 1);
         }
     }
 
 
     public static void main(String[] args) {
-        System.out.println(new SubsetsWithDup_90().subsetsWithDup(new int[]{1, 2, 2, 2, 3}));
+        System.out.println(new SubsetsWithDup_90().subsetsWithDup(new int[]{1,2,2,3}));
     }
 }
