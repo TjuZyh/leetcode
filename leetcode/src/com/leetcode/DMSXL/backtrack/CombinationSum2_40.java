@@ -16,46 +16,32 @@ import java.util.List;
 public class CombinationSum2_40 {
     List<List<Integer>> ans = new ArrayList<>();
     List<Integer> temp = new ArrayList<>();
+    boolean[] used;
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        used = new boolean[candidates.length];
+        Arrays.fill(used, false);
         Arrays.sort(candidates);
-        backtrack2(candidates, target, 0, 0);
+        backtrack(candidates, target, 0, 0);
         return ans;
     }
 
-    //这样做会有重复序列
-    public void backtrack(int[] candidates, int target, int index, int sum) {
-        if(sum == target) {
-            ans.add(new ArrayList<>(temp));
-            return;
-        }
 
-        if(index >= candidates.length || sum > target) {
-            return;
-        }
-
-        temp.add(candidates[index]);
-        backtrack(candidates, target, index + 1, sum + candidates[index]);
-
-        temp.remove(temp.size() - 1);
-        backtrack(candidates, target, index + 1, sum);
-    }
-
-    //递归形式实现，递归到当前位置需要判断一下与前面值是否相同，相同则一定会出现重复情况，直接continue考虑下一个位置即可
-    //注意要在排序后回溯
-    public void backtrack2(int[] candidates, int target, int sum, int begin) {
+    public void backtrack(int[] candidates, int target, int sum, int begin) {
         if(sum == target) {
             ans.add(new ArrayList<>(temp));
             return;
         }
         for(int i = begin; i < candidates.length; i++) {
-            if(i > begin && candidates[i] == candidates[i - 1]) {
+            //如果当前相同，且前一个树枝上未取过，则代表马上该树层要取，这样会出现重复，则需跳过
+            //即前一个选了，当前也可以选；前一个未选，当前也不能选
+            if(i > 0 && candidates[i] == candidates[i - 1] && !used[i - 1]) {
                 continue;
             }
-            if(candidates[i] + sum > target) {
-                break;
-            }else {
+            if(sum + candidates[i] <= target) {
+                used[i] = true;
                 temp.add(candidates[i]);
-                backtrack2(candidates, target, sum + candidates[i], i + 1);
+                backtrack(candidates, target, sum + candidates[i], i + 1);
+                used[i] = false;
                 temp.remove(temp.size() - 1);
             }
         }
