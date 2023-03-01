@@ -11,11 +11,14 @@ package com.leetcode.DMSXL.greedy;
 *   输出: 2
 * */
 public class Jump_45 {
+    //在跳的过程中，如果发现其中有可以跳到更远的位置，那么就跳到该位置，再从该位置进行下一次跳
     public int jump(int[] nums) {
         int length = nums.length;
+        //利用end边界维护当前能到的最大位置，到达边界时跳跃次数+1
         int end = 0;
         int maxPosition = 0;
         int steps = 0;
+        //最后一个位置无需遍历
         for (int i = 0; i < length - 1; i++) {
             maxPosition = Math.max(maxPosition, i + nums[i]);
             if (i == end) {
