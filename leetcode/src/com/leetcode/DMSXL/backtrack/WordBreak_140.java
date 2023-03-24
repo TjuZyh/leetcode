@@ -13,6 +13,7 @@ import java.util.*;
 *   输出:["cats and dog","cat sand dog"]
 * */
 public class WordBreak_140 {
+    //回溯
     List<String> ans = new ArrayList<>();
     List<String> temp = new ArrayList<>();
     Set<String> set;
