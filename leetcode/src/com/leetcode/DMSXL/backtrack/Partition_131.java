@@ -15,38 +15,38 @@ import java.util.List;
 public class Partition_131 {
     List<List<String>> ans = new ArrayList<>();
     List<String> temp = new ArrayList<>();
-    boolean[][] map;
+
 
     public List<List<String>> partition(String s) {
-        //判读回文串用到了动态规划
-        map = new boolean[s.length()][s.length()];
-        for(int i = 0; i < s.length(); i++) {
-            Arrays.fill(map[i], true);
-        }
-
-        for (int i = s.length() - 1; i >= 0; --i) {
-            for (int j = i + 1; j < s.length(); ++j) {
-                map[i][j] = (s.charAt(i) == s.charAt(j)) && map[i + 1][j - 1];
-            }
-        }
-
         backtrack(s, 0);
         return ans;
     }
 
     //判断i-j是否为回文串，是则加入，并继续判断j+1开始的后序子串
-    public void backtrack(String s, int i) {
-        if(i == s.length()) {
+    public void backtrack(String s, int index) {
+        if(index >= s.length()) {
             ans.add(new ArrayList<>(temp));
             return;
         }
-        for(int j = i; j < s.length(); j++) {
-            if(map[i][j]) {
-                temp.add(s.substring(i, j + 1));
-                backtrack(s, j + 1);
-                temp.remove(temp.size() - 1);
+        for(int i = index; i < s.length(); i++) {
+            if(isPalindrome(s, index, i)) {
+                String str = s.substring(index, i + 1);
+                temp.add(str);
+            }else {
+                continue;
+            }
+            backtrack(s, i + 1);
+            temp.remove(temp.size() - 1);
+        }
+    }
+
+    public boolean isPalindrome(String s, int start, int end) {
+        for(int i = start, j = end; i < j; i++, j--) {
+            if(s.charAt(i) != s.charAt(j)) {
+                return false;
             }
         }
+        return true;
     }
 
 
