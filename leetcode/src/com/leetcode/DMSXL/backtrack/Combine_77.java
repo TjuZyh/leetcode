@@ -41,4 +41,8 @@ public class Combine_77 {
         temp.remove(temp.size() - 1);
         backtrack(cur + 1, n, k);
     }
+
+    public static void main(String[] args) {
+        System.out.println(new Combine_77().combine(5, 3));
+    }
 }
