@@ -34,7 +34,7 @@ public class Floyd {
         int[][] graph = new int[nodeCnt + 1][nodeCnt + 1];
         graph[1][3] = 4;
         graph[3][1] = 4;
-        //graph[4][3] = 2;
+        graph[4][3] = 2;
         graph[3][4] = 2;
         graph[1][2] = 3;
         //graph[2][1] = 3;
