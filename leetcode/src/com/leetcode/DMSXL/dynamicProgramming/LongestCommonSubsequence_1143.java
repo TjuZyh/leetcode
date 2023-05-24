@@ -1,5 +1,7 @@
 package com.leetcode.DMSXL.dynamicProgramming;
 
+import java.util.Arrays;
+
 /**
  * @Author zyh
  * @Date 2023/5/17 19:44
@@ -33,10 +35,11 @@ public class LongestCommonSubsequence_1143 {
                 ans = Math.max(ans, dp[i][j]);
             }
         }
+        System.out.println(Arrays.deepToString(dp));
         return ans;
     }
 
     public static void main(String[] args) {
-        System.out.println(new LongestCommonSubsequence_1143().longestCommonSubsequence("abcde", "ace"));
+        System.out.println(new LongestCommonSubsequence_1143().longestCommonSubsequence("abcde", "acedy"));
     }
 }

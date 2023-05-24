@@ -37,7 +37,7 @@ public class IsSubsequence_392 {
     /*
     * 1. dp[i][j]：下标为i-1的s和下标为j-1的t，相同子序列的长度dp[i][j]
     * 2. 递归公式：
-    *       if(s[i - 1] == t[j - 1]) dp[i][j] = dp[i - 1][j - 1]
+    *       if(s[i - 1] == t[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1
     *       if(s[i - 1] != t[j - 1]) dp[i][j] = dp[i][j - 1]
     * 3. 初始化：
     *       dp[0][0] = 0， dp[i][0] = 0
