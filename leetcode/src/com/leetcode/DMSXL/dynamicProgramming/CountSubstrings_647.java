@@ -29,6 +29,7 @@ public class CountSubstrings_647 {
         boolean[][] dp = new boolean[s.length()][s.length()];
 
         for(int i = s.length() - 1; i >= 0; i--) {
+            //区间[i, j]，所以j的取值要大于等于i
             for(int j = i; j < s.length(); j++) {
                 if(s.charAt(i) == s.charAt(j)) {
                     if(i == j || Math.abs(i - j) == 1) {
