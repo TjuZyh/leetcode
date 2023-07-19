@@ -1,13 +1,11 @@
 package com.leetcode.DailyCheckIn._0308;
 
-import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class PriorityQueueTest {
     //创建小顶堆
-    @Test
     public void test1(){
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
@@ -27,7 +25,6 @@ public class PriorityQueueTest {
     }
 
     //利用lambda表达式创建大顶堆
-    @Test
     public void test2(){
         PriorityQueue<String> priorityQueue = new PriorityQueue<>((s1 , s2) -> {
             return -s1.compareTo(s2);
